@@ -1,0 +1,22 @@
+{
+  "name": "the-systems/hmcsw4-php-client",
+  "description": "HMCSW4 PHP Client",
+  "keywords": ["hmcsw4", "client", "php"],
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "Moritz Walter",
+      "email": "moritz.walter@the-systems.eu"
+    }
+  ],
+  "require": {
+    "php": ">=7.4.0",
+    "guzzlehttp/guzzle": "^6.0|^7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "HMCSW4\\Client\\": "src/hmcsw4"
+    }
+  },
+  "prefer-stable": true
+}
