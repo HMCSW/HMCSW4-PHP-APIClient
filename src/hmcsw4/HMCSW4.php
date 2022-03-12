@@ -24,9 +24,9 @@ class HMCSW4
     return $this->request;
   }
 
-  public function getService(int $team_id, int $service_id): Resources\Service
+  public function getTeam(int $team_id): Resources\Team
   {
-    return new Resources\Service($this, $team_id, $service_id);
+    return new Resources\Team($this, $team_id);
   }
 
 

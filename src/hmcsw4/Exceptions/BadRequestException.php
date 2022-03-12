@@ -4,7 +4,7 @@ namespace HMCSW4\Client\Exceptions;
 
 use Exception;
 
-class NotFoundException extends Exception
+class BadRequestException extends Exception
 {
   public array $errors;
 
