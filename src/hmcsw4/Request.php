@@ -46,19 +46,19 @@ class Request
     return $this->request('POST', $uri, $query, $payload, $formParams);
   }
 
-  public function put($uri, array $query = [], array $payload = [])
+  public function put($uri, array $query = [], array $payload = [], array $formParams = [])
   {
-    return $this->request('PUT', $uri, $query, $payload);
+    return $this->request('PUT', $uri, $query, $payload, $formParams);
   }
 
-  public function patch($uri, array $query = [], array $payload = [])
+  public function patch($uri, array $query = [], array $payload = [], array $formParams = [])
   {
-    return $this->request('PATCH', $uri, $query, $payload);
+    return $this->request('PATCH', $uri, $query, $payload, $formParams);
   }
 
-  public function delete($uri, array $query = [], array $payload = [])
+  public function delete($uri, array $query = [], array $payload = [], array $formParams = [])
   {
-    return $this->request('DELETE', $uri, $query, $payload);
+    return $this->request('DELETE', $uri, $query, $payload, $formParams);
   }
 
   public function request($method, $uri, array $query = [], array $payload = [], array $formParams = [])
