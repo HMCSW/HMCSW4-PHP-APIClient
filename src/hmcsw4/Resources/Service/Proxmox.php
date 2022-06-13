@@ -16,27 +16,48 @@ class Proxmox extends Service
   }
 
   public function get(){
-    return $this->HMCSW4->getRequest()->get("user/teams/".$this->team_id."/services/".$this->service_id."/proxmox");
+    return $this->HMCSW4->getRequest()->get("user/teams/".$this->team_id."/services/".$this->service_id."/info");
+  }
+
+  public function stats(){
+    return $this->HMCSW4->getRequest()->get("user/teams/".$this->team_id."/services/".$this->service_id."/stats");
   }
 
   public function start(){
-    return $this->HMCSW4->getRequest()->post("user/teams/".$this->team_id."/services/".$this->service_id."/proxmox/start");
+    return $this->HMCSW4->getRequest()->post("user/teams/".$this->team_id."/services/".$this->service_id."/start");
   }
 
   public function stop(){
-    return $this->HMCSW4->getRequest()->post("user/teams/".$this->team_id."/services/".$this->service_id."/proxmox/stop");
+    return $this->HMCSW4->getRequest()->post("user/teams/".$this->team_id."/services/".$this->service_id."/stop");
   }
 
   public function reboot(){
-    return $this->HMCSW4->getRequest()->post("user/teams/".$this->team_id."/services/".$this->service_id."/proxmox/reboot");
+    return $this->HMCSW4->getRequest()->post("user/teams/".$this->team_id."/services/".$this->service_id."/reboot");
   }
 
   public function kill(){
-    return $this->HMCSW4->getRequest()->post("user/teams/".$this->team_id."/services/".$this->service_id."/proxmox/kill");
+    return $this->HMCSW4->getRequest()->post("user/teams/".$this->team_id."/services/".$this->service_id."/kill");
   }
 
   public function vnc(){
     return $this->HMCSW4->getRequest()->post("user/teams/".$this->team_id."/services/".$this->service_id."/createSession");
   }
-  
+
+  public function getRDNS(){
+    return $this->HMCSW4->getRequest()->get("user/teams/".$this->team_id."/services/".$this->service_id."/rdns");
+  }
+
+  public function createRDNS(int $ip_id, string $ip, string $content){
+    return $this->HMCSW4->getRequest()->put("user/teams/".$this->team_id."/services/".$this->service_id."/rdns", array("ip_id" => $ip_id, "name" => $ip, "content" => $content));
+  }
+
+  public function deleteRDNS(string $ip){
+    return $this->HMCSW4->getRequest()->delete("user/teams/".$this->team_id."/services/".$this->service_id."/rdns", array("name" => $ip));
+  }
+
+  public function reinstall(){
+    return $this->HMCSW4->getRequest()->delete("user/teams/".$this->team_id."/services/".$this->service_id."/reinstallVM");
+  }
+
+
 }
