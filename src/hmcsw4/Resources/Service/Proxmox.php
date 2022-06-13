@@ -19,8 +19,8 @@ class Proxmox extends Service
     return $this->HMCSW4->getRequest()->get("user/teams/".$this->team_id."/services/".$this->service_id."/info");
   }
 
-  public function stats(){
-    return $this->HMCSW4->getRequest()->get("user/teams/".$this->team_id."/services/".$this->service_id."/stats");
+  public function stats(bool $chartJSReady = true, $by = "hour"){
+    return $this->HMCSW4->getRequest()->get("user/teams/".$this->team_id."/services/".$this->service_id."/stats", array("chartJSReady" => $chartJSReady, "by" => $by));
   }
 
   public function start(){
