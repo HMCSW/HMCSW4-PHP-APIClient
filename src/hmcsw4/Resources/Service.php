@@ -39,4 +39,8 @@ class Service extends Resource
     return $this->HMCSW4->getRequest()->delete("user/teams/".$this->team_id."/services/".$this->service_id."/terminateServiceInstant");
   }
 
+  public function createSession(){
+    return $this->HMCSW4->getRequest()->delete("user/teams/".$this->team_id."/services/".$this->service_id."/createSession");
+  }
+
 }
