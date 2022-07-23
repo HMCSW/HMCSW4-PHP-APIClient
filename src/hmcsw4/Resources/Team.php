@@ -25,12 +25,12 @@ class Team extends Resource
     return $this->HMCSW4->getRequest()->get("user/teams/".$this->team_id);
   }
 
-  public function orderProxmoxCal(int $disk, int $memory, int $cores, int $ipv4, int $ipv6){
-    return $this->HMCSW4->getRequest()->post("user/teams/".$this->team_id."/reselling/order/proxmox/cal", [], [], ["disk" => $disk, "memory" => $memory, "cores" => $cores, "ipv4" => $ipv4, "ipv6" => $ipv6]);
+  public function orderCustomCal(String $type, Array $args = []){
+    return $this->HMCSW4->getRequest()->post("user/teams/".$this->team_id."/reselling/order/".$type."/cal", [], [], $args);
   }
   
-  public function orderProxmoxBuy(int $disk, int $memory, int $cores, int $ipv4, int $ipv6){
-    return $this->HMCSW4->getRequest()->post("user/teams/".$this->team_id."/reselling/order/proxmox/buy", [], [], ["disk" => $disk, "memory" => $memory, "cores" => $cores, "ipv4" => $ipv4, "ipv6" => $ipv6]);
+  public function orderCustomBuy(String $type, Array $args = []){
+    return $this->HMCSW4->getRequest()->post("user/teams/".$this->team_id."/reselling/order/".$type."/buy", [], [], $args);
   }
   
   public function orderBuy(int $product_id){
