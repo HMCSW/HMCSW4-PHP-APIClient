@@ -6,7 +6,7 @@ use HMCSW4\Client\Request;
 use HMCSW4\Client\Resources\Service;
 use HMCSW4\Client\Resources\Resource;
 
-class Proxmox extends Service
+class PleskLicense extends Service
 {
   public function __construct ($HMCSW, int $team_id, int $service_id)
   {
