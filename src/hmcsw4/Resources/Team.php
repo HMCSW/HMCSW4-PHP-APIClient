@@ -24,6 +24,10 @@ class Team extends Resource
   public function get(){
     return $this->HMCSW4->getRequest()->get("user/teams/".$this->team_id);
   }
+  
+  public function getServices(){
+    return $this->HMCSW4->getRequest()->get("user/teams/".$this->team_id."/services");
+  }
 
   public function orderCustomCal(String $type, Array $args = []){
     return $this->HMCSW4->getRequest()->post("user/teams/".$this->team_id."/reselling/order/".$type."/cal", [], [], $args);
