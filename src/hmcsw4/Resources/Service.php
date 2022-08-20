@@ -65,7 +65,7 @@ class Service extends Resource
     return $this->HMCSW4->getRequest()->patch("user/teams/".$this->team_id."/services/".$this->service_id."/name");
   }
   
-  public function toogleServiceLock(){
+  public function toggleServiceLock(){
     return $this->HMCSW4->getRequest()->patch("user/teams/".$this->team_id."/services/".$this->service_id."/lock");
   }
 
