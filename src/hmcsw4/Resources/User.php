@@ -14,9 +14,9 @@ class User extends Resource
     return $this->HMCSW4->getRequest();
   }
 
-  public function getService(int $service_id): Service
+  public function getService(int $team_id, int $service_id): Service
   {
-    return new Service($this, $this->team_id, $service_id);
+    return new Service($this, $team_id, $service_id);
   }
   
   public function getInfo(){
@@ -86,11 +86,7 @@ class User extends Resource
   public function payInvoice($invoice_id){
     return $this->HMCSW4->getRequest()->get("user/invoices/".$invoice_id."/pay");
   }
-  
-  public function getTeams(){
-    return $this->HMCSW4->getRequest()->get("user/teams");
-  }
-  
+
   public function sortTeams(){
     return $this->HMCSW4->getRequest()->post("user/teams/sort");
   }

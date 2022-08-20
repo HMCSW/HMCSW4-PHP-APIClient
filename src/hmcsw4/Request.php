@@ -4,7 +4,7 @@ namespace HMCSW4\Client;
 
 use GuzzleHttp\Client;
 use Psr\Http\Message\ResponseInterface;
-use http\Exception\BadConversionException;
+use GuzzleHttp\Exception\GuzzleException;
 use HMCSW4\Client\Exceptions\NotFoundException;
 use HMCSW4\Client\Exceptions\BadRequestException;
 use HMCSW4\Client\Exceptions\UnknownErrorException;
@@ -61,6 +61,12 @@ class Request
     return $this->request('DELETE', $uri, $query, $payload, $formParams);
   }
 
+  /**
+   * @throws NotFoundException
+   * @throws BadRequestException
+   * @throws GuzzleException
+   * @throws UnknownErrorException
+   */
   public function request($method, $uri, array $query = [], array $payload = [], array $formParams = [])
   {
     $uri = $this->serverUrl.'/v1/'.$uri;
@@ -96,7 +102,7 @@ class Request
    *
    * @return void
    * @throws notFoundException
-   * @throws UnknownErrorException
+   * @throws UnknownErrorException|BadRequestException
    */
   private function handleRequestError(ResponseInterface $response)
   {

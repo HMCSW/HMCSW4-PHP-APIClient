@@ -10,8 +10,6 @@ class Team extends Resource
   {
     parent::__construct($HMCSW);
     $this->team_id = $team_id;
-    $this->group_id = $group_id;
-    $this->sshkey_id = $sshkey_id;
   }
   
   public function getRequest(){
@@ -55,12 +53,12 @@ class Team extends Resource
     return $this->HMCSW4->getRequest()->get("user/teams/".$this->team_id."/groups");
   }
   
-  public function setGroupsPermission(){
-    return $this->HMCSW4->getRequest()->put("user/teams/".$this->team_id."/groups".$this->group_id."/permission");
+  public function setGroupsPermission(int $group_id){
+    return $this->HMCSW4->getRequest()->put("user/teams/".$this->team_id."/groups".$group_id."/permission");
   }
   
-  public function setSSHKeyAutoInstall(){
-    return $this->HMCSW4->getRequest()->patch("user/teams/".$this->team_id."/sshKeys".$this->sshkey_id."/autoInstall");
+  public function setSSHKeyAutoInstall(int $sshKey_id){
+    return $this->HMCSW4->getRequest()->patch("user/teams/".$this->team_id."/sshKeys/".$sshKey_id."/autoInstall");
   }
 
   public function orderCustomCal(String $type, Array $args = []){

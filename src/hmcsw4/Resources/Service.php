@@ -2,7 +2,13 @@
 
 namespace HMCSW4\Client\Resources;
 
+use HMCSW4\Client\Resources\Service\Plesk;
+use HMCSW4\Client\Resources\Service\Domain;
 use HMCSW4\Client\Resources\Service\Proxmox;
+use HMCSW4\Client\Resources\Service\Pterodactyl;
+use HMCSW4\Client\Resources\Service\PleskLicense;
+use HMCSW4\Client\Resources\Service\TeamspeakServer;
+use HMCSW4\Client\Resources\Service\TeamspeakInstance;
 
 class Service extends Resource
 {
@@ -65,7 +71,7 @@ class Service extends Resource
     return $this->HMCSW4->getRequest()->patch("user/teams/".$this->team_id."/services/".$this->service_id."/name");
   }
   
-  public function toogleServiceLock(){
+  public function toggleServiceLock(){
     return $this->HMCSW4->getRequest()->patch("user/teams/".$this->team_id."/services/".$this->service_id."/lock");
   }
 
