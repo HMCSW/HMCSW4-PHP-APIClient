@@ -24,6 +24,11 @@ class HMCSW4
     return $this->request;
   }
 
+  public function getUser(): Resources\User
+  {
+    return new Resources\User($this);
+  }
+
   public function getTeam(int $team_id): Resources\Team
   {
     return new Resources\Team($this, $team_id);
